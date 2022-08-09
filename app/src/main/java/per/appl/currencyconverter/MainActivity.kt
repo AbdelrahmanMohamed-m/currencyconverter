@@ -31,16 +31,45 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initlizeviews()
         PopulateDropDownMenu()
-        convertButton.setOnClickListener {
+       amounts.addTextChangedListener {
+            `calculate-number`()
+        }
+        DropDownMenu.setOnItemClickListener { parent, view, position, id ->
+        `calculate-number`()}
+        DropDownMenu1.setOnItemClickListener { parent, view, position, id ->
+            `calculate-number`()
+        }
+        }
+
+
+        }
+     private fun `calculate-number`() {
+
+        if (amounts.text.toString().isNotEmpty()) {
             val amount = amounts.text.toString().toDouble()
-            val toValue = values[DropDownMenu1.text.toString()]
-            val fromValue= values[DropDownMenu.text.toString()]
-            val result = amount.times(toValue!!.div(fromValue!!))
-               res.setText(result.toString())
-        }
+            val toValue = values[DropDownMenu.text.toString()]
+            val fromValue = values[DropDownMenu1.text.toString()]
+
+            try {
 
 
+                val result = amount * (toValue!! / fromValue!!)
+
+                res.setText(result.toString())
+
+            } catch (ex: Exception) {
+//               val snack= Snackbar.make(DropDownMenu, "this a7a", Snackbar.LENGTH_SHORT)
+//                snack.show()
+//              snack.setAction("OK")
+//              {
+//
+//              }
+
+            }
+        } else {
+            amounts.setError("Enter a number please")
         }
+    }
     private fun PopulateDropDownMenu() {
         val listDropDown = listOf(EgyptianPound, americanDollar, AED, GBP)
         val adapter = ArrayAdapter(this, R.layout.drop_down_menu, listDropDown)
