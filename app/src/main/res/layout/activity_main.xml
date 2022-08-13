@@ -6,13 +6,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+    <Toolbar android:layout_width="match_parent"
+             android:layout_height="59dp"
+             android:background="@android:color/transparent"
+             app:layout_constraintEnd_toEndOf="parent"
+             android:id="@+id/Toolbar_transperant"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintStart_toStartOf="parent"/>
     <Button
             android:text="Convert"
             android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/text_1"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.0"
             android:id="@+id/button"></Button>
@@ -119,6 +126,7 @@
                 android:inputType="numberDecimal"
         ></com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
             android:text="Result"
             android:textSize="18sp"
@@ -127,7 +135,6 @@
             app:layout_constraintTop_toBottomOf="@+id/button"
             android:layout_marginTop="4dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" android:id="@+id/textView4"></TextView>
-
     <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:enabled="false"
